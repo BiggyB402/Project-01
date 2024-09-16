@@ -1,7 +1,7 @@
 # Project-01
 
-# Your Name
+# Shawn Eanes
 
-# Your Github username
+# BiggyB402
 
-# List the things you added for points
+# 8 or more knots, a loop, reflecting choice, one major choice
