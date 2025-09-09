@@ -29,7 +29,7 @@ You take a look around and notice there are several different areas to go. Your 
 
 
 == Corn_Field ==
-It is { advance time() }
+It is { advance_time() }
 You decide to check out the corn field and see if you find anything that might help your search. As you walk through you see a {item_pickup} on the ground. Picking this up might help for some reason. 
 
 +[Baseball Bat]
@@ -43,8 +43,14 @@ You decide to check out the corn field and see if you find anything that might h
 
 
 == Corn_Field_2 ==
-You retrived  the {item_pickup} and added it to your inventory. 
+You retrived  the {item_pickup} and added it to your inventory.
++[Go Back]->Corn_Field
 
+
+
+
+== Barn == 
+You decide check out the barn for further investigation. 
 
 
 
