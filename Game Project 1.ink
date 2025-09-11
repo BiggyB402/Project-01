@@ -1,4 +1,4 @@
-LIST Inventory = (Axe), (Basebal_Bat), (Ancient_Stone) 
+LIST Inventory = (Axe), (Basebal_Bat), (Ancient_Stone), (Key), (Old_Book), (Letters)
 VAR time = -1 // 0 Night, 1 Morning, 2 Afternoon, 3 Evening
 VAR item_pickup =""
 VAR daughter_name = ""
@@ -15,7 +15,11 @@ VAR health = 100
 ->Podium
 ->Barn_2
 ->Upstairs
-
+->Attic
+->Bathroom
+->Master_Bedroom
+->Kids_Bedroom
+->Living_Room_2
 
 == Front_Yard
 You pull up to the the old country home. Its been several years since you daughter went missing and there have been no signs of where she had disappeared to, nor any reason as to why she disappeared. After the end of the investigation, people soon forgot, and went back to normal, except for you. 
@@ -27,9 +31,9 @@ You take a look around and notice there are several different areas to go. Your 
 INVENTORY start: {Inventory}
 
 
-+[walk through field]->Corn_Field
-+[explore the barn]->Barn
-+[go inside]->Old_House
++[Walk Through Field]->Corn_Field
++[Explore the Barn]->Barn
++[Go Inside]->Old_House
 +[check the vehicle]->Broken_Car
 
 
@@ -78,17 +82,18 @@ You decide check out the barn for further investigation. While in the barn you n
 +[Ancient Stone]
 ~ item_pickup = "Ancient Stone"
 ~ Inventory += Ancient_Stone
-*[pick up stone]->Podium
+*[Pick Up Stone]->Podium
 +[Go Back]->Barn_2
 
 
 
 == Barn_2 ==
+It is { advance_time() }
 You didn't retrieve the stone and left it be for now. 
 +[Go Back]->Barn
 
 == Podium ==
-You retrieved the {item_pickup} and added it to your inventory. After retreiving it you hear a loud moan and groan. You turn around and notice a unfamilar figure come in the shadows, but before you can call out to it, it lunges foward towards you.  
+You retrieved the {item_pickup} and added it to your inventory. After retreiving it you hear a loud moan and groan. You turn around and notice a unfamilar figure come in the shadows, but before you can call out to it, it lunges foward towards you! It proceeds to attack you!
 +[Go back]->Barn
 
 
@@ -97,9 +102,36 @@ You retrieved the {item_pickup} and added it to your inventory. After retreiving
 == Old_House ==
 You walk up the old house. the decrpit place feels sinister and it feels as though no one has lived here for over a decade. you walk inside and are met with several rooms to look search for. 
 
-+[go upstairs]->Upstairs
-+[check kitchen]->Kitchen
-+[go underground]->Basement
++[Go Upstairs]->Upstairs
++[Check Kitchen]->Kitchen
++[Go Underground]->Basement
++[Check Main Room]->Living_Room
+
+
+
+
+== Living_Room == 
+You enter the living room. It's cluttered and dirty, dishes everywhere and old papers and strunned on the floor. the furniture looks decrpit and worn out, with peeling paint from the walls. In the center of the room sits a table containing different items. There on the table lies a key, an old book, and a set of letters. each item seeming to hold some kind of mystery.
+
++[Key]
+~ item_pickup = "Key"
+~ Inventory += Key
++[Go Back]-> Living_Room_2
++[Old Book]
+~ item_pickup = "Old Book"
+~ Inventory += Old_Book
++[Go Back]-> Living_Room_2
++[Letters]
+~ item_pickup = "Letters"
++[Go Back]-> Living_Room_2
+
+
+
+
+== Living_Room_2 ==
+You picked up the {item_pickup}. You now have the {Inventory}
+
+
 
 
 
@@ -109,7 +141,12 @@ You walk up the old house. the decrpit place feels sinister and it feels as thou
 
 
 == Upstairs ==
-You head upstairs and find multiple bedrooms all with different layouts adn 
+You head upstairs and find multiple bedrooms all with different layouts. There's a master bedroom, kids room, bathroom and attic. Each room feeling more errier than the other, you choose to explore further. 
+
++[Go Middle]->Master_Bedroom
++[Go Left]->Kids_Bedroom
++[Go Right]->Bathroom
++[Go Up]->Attic
 
 
 
@@ -129,8 +166,7 @@ You head upstairs and find multiple bedrooms all with different layouts adn
  The wooden bat sits on you back, already seeming damaged from use. 
  
  
-    ~ Inventory -== Baseball_Bat
- The bat shatters from impact, breaking into tiny pieces on the floor. 
+
  
  
  - Iventory hasnt Axe:
