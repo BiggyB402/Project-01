@@ -1,4 +1,4 @@
-LIST Inventory = (Axe, Baseball, Ancient Stone) 
+LIST Inventory = (Axe), (Basebal_Bat), (Ancient_Stone) 
 VAR time = -1 // 0 Night, 1 Morning, 2 Afternoon, 3 Evening
 VAR item_pickup =""
 VAR daughter_name = ""
@@ -51,7 +51,7 @@ You decide to check out the corn field and see if you find anything that might h
 
 +[Baseball Bat]
 ~ item_pickup = "Baseball Bat"
-~ Inventory += Baseball Bat
+~ Inventory += Baseball_Bat
 ->Corn_Field_2
 +[Axe]
 ~ item_pickup = "Axe"
@@ -77,7 +77,7 @@ You decide check out the barn for further investigation. While in the barn you n
 
 +[Ancient Stone]
 ~ item_pickup = "Ancient Stone"
-~ Inventory += Ancient Stone
+~ Inventory += Ancient_Stone
 *[pick up stone]->Podium
 +[Go Back]->Barn_2
 
@@ -125,11 +125,11 @@ You head upstairs and find multiple bedrooms all with different layouts adn
 
 
 {
- - Inventory has Baseball Bat:
+ - Inventory has Baseball_Bat:
  The wooden bat sits on you back, already seeming damaged from use. 
  
  
-    ~ Inventory -== Baseball Bat
+    ~ Inventory -== Baseball_Bat
  The bat shatters from impact, breaking into tiny pieces on the floor. 
  
  
